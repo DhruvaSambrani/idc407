@@ -1,10 +1,14 @@
 ---
-title: Review of \"Isotopy and energy of physical networks\"
+title: "Review of: Isotopy and energy of physical networks"
 subtitle: IDC407 Term Paper
 author: Dhruva Sambrani
 date: \today
 toc: true
 urlcolor: cyan
+geometry: margin=1in
+bibliography: bib.bib
+link-citations: true
+link-bibliography: true
 ---
 
 $\pagebreak$
@@ -19,6 +23,7 @@ By looking at the isotopy number of a graph, we can also look at the number of u
 
 With this entire framework, one may also find interesting insights into the properties of certain physical networks such as brain connectomes and vascular systems.
 
+This review of [@barabasi] introduces the above methods with results and the significance of the same.
 
 # Methodology and Approach
 
@@ -26,9 +31,10 @@ With this entire framework, one may also find interesting insights into the prop
 
 To begin with, they determine if two graphsare non-isotopic. They use the Linking Number, which is also a knot invariant which counts the number of times two closed loops wind around each other. They generalize this to what they call the graph linking number, which is just the sum of the linking number $\mathcal{L}$ over all pairs of cycles. That is, 
 
-$$\mathcal G\{\epsilon\} = \sum_{c, c'\in \{C\}} |\mathcal{L(\epsilon; c, c')}|$$
+$$\mathcal G\{\epsilon\} = \sum_{c, c'\in \{C\}} |\mathcal{L}(\epsilon; c, c')|$$
 
 where $\{C\}$ is the minimal loop set in the embedding $\epsilon$, and $\mathcal{L}$ is the linking number between cycle $c$ and $c'$ in that embedding.
+
 
 It is to be noted that $\{C\}$ is fully determined by the adjacency matrix and $\mathcal{L}$ is given by the embedding only. If cycles share nodes, then $\mathcal{L}$ is considered to be 0.
 
@@ -54,6 +60,10 @@ where $A_M, A_L$ are amplitudes, $X_i, X_j$ are positions, $x_l, x_m$ are path s
 This formulation may seem arbitrary, but it provides multiple insights. First, the shortest wiring length embedding is also the least energy configuration without link crossing. Since there must be multiple minimas, the problem of finding the global minima is similar to the protein folding problem which is known to be NP Complete.
 
 But, what is more interesting is the following observation. Since energy cost of link crossing is infinite, there are distinct wells created. Further, since all embeddings of equal link crossings can be continuously deformed to each other, they must be within the same well. Hence, the energy landscape is made by distinct wells, one each for an isotopy class.
+
+![$\mathcal G_n$](./04-03-17-11.png){width=50%} 
+
+![Energy wells](./04-03-17-22.png){width=50%}
 
 ## Temperature
 
@@ -94,11 +104,13 @@ $$\tilde{T(\delta)} - \tilde{T}_\text{min} = \frac{\delta}{\epsilon\sqrt{\frac{N
 
 To test the model, the authors generated 3D lattices by varying the wire paths and extracted the $\tilde T$ as per the above equation. By calculating $\langle \mathcal G_n\rangle$ from the simulated graph and from the $\mathcal G_n$ - $\tilde{T}$ equation they verify the validity of the assumptions. The same is also done with the entropy, which also has excellent match.
 
-![$\langle\mathcal G_n \rangle$ vs $\tilde T$](04-03-16-04.png){ width=50%, height=150px } ![S vs $\tilde T$](04-03-16-08.png){ width=50%, height=150px} 
+![$\langle\mathcal G_n \rangle$ vs $\tilde T$](04-03-16-04.png){ width=50% } ![S vs $\tilde T$](04-03-16-08.png){ width=50%} 
 
 ## Mouse Brain
 
-By analyzing the connectome of the mouse brain, they estimate the efficiency of the structure. Since axons have metabolic costs associated with them, it is hypothesized that the least energy configuration will be picked. By measuring the $\mathcal G_n$ and the most economical linking at $\tilde{T} = \tilde{T}_\text{min}$, we geth that the $\marthcal G_n(\text{mouse}) = 0.148$ and $\mathcal G_n(\text{best})=0.008$. Similarly, $\tilde T(\text{mou}) = 0.49$ and $\tilde T(\text{max}) \approx 0.66$ (limitation due to the brain size). It is also noted from before that $\tilde T$ is a good representation of the layout variability of the mouse brain.
+By analyzing the connectome of the mouse brain, they estimate the efficiency of the structure. Since axons have metabolic costs associated with them, it is hypothesized that the least energy configuration will be picked. By measuring the $\mathcal G_n$ and the most economical linking at $\tilde{T} = \tilde{T}_\text{min}$, we geth that the $\mathcal G_n(\text{mouse}) = 0.148$ and $\mathcal G_n(\text{best})=0.008$. Similarly, $\tilde T(\text{mou}) = 0.49$ and $\tilde T(\text{max}) \approx 0.66$ (limitation due to the brain size). It is also noted from before that $\tilde T$ is a good representation of the layout variability of the mouse brain.
+
+![Mouse Brain analysis](04-03-17-07.png){height=30%}
 
 # Significance of the work
 
@@ -110,3 +122,6 @@ On the more real world implications, as more brain data becomes available, the a
 
 Finally the work also shows that certain network problems could be solved, at least statistically, by mapping it to the dual problem in the topology space and vice-versa. 
 
+$\pagebreak$
+
+# References
